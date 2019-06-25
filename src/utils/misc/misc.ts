@@ -1,0 +1,1 @@
+export const createNamespacedConstFactory = (namespace: string) => (name: string): string => `${namespace}/${name}`;
