@@ -1,16 +1,16 @@
 import { createStackNavigator } from 'react-navigation';
-import Home from '../Home';
-import TestComponentB from '../TestComponentB';
+import Main from 'Components/Main';
+import TestComponentB from 'Components/TestComponentB';
 
 const Navigator = createStackNavigator(
     {
-        Home: {screen: Home},
+        Main: {screen: Main},
         TestComponentB: {screen: TestComponentB},
     },
     {
-        initialRouteName: "Home",
+        initialRouteName: "Main",
         headerMode: 'none',
-    }
+    },
 );
 
 export default Navigator;

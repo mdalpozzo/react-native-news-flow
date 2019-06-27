@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
 import styles from './DefaultLayout.styles';
-import NavBar from '../NavBar';
 
 interface Props {};
 
@@ -13,7 +12,6 @@ class DefaultLayout extends Component<Props> {
         return (
             <View style={styles.Container}>
                 {children}
-                <NavBar stylesProp={styles.NavBar}></NavBar>
             </View>
         );
     }
