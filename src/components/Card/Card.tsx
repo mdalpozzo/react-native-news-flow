@@ -1,22 +1,21 @@
 import * as React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Image} from 'react-native';
+import styles from './Card.styles';
+
 export interface Props {
     children?: React.ReactNode;
-    title: string;
     stylesProp?: any;
-}
+};
 
-const Panel: React.FC<Props> = ({
+const Card: React.FC<Props> = ({
     children,
-    title,
     stylesProp,
 }): React.ReactElement => {
     return (
-        <View style={stylesProp}>
-            <Text>{title}</Text>
+        <View style={[stylesProp, styles.Container]}>
             {children}
         </View>
     );
 };
 
-export default Panel;
+export default Card;

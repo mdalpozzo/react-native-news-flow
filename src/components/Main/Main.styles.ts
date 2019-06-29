@@ -1,12 +1,14 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-    container: {
+    Container: {
         backgroundColor: '#C5DCFF',
         flex: 1,
     },
+    NoView: {
+        flex: 1,
+    },
     NavBar: {
-        position: 'absolute',
         bottom: 0,
         width: '100%',
     }
