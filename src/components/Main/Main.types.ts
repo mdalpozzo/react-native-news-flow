@@ -16,3 +16,4 @@ export const SET_VIEW = cc('SET_VIEW');
 // View Cases
 export const HOME = cc('HOME');
 export const OTHER = cc('OTHER');
+export const TEST = cc('TEST');

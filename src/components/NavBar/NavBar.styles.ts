@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#C5DCFF',
-        height: 65,
+        height: 50,
         flexDirection: 'row',
         justifyContent: 'space-evenly',
     },
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     },
     text: {
         textAlign: 'center',
-    }
+    },
 });
 
 export default styles;

@@ -4,6 +4,7 @@ import Navigator from './src/components/Navigator';
 import { createAppContainer, NavigationContainer } from 'react-navigation';
 import { Provider } from 'react-redux';
 import store from './src/store';
+import Main from 'Components/Main';
 
 // const instructions = Platform.select({
 //   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -12,14 +13,14 @@ import store from './src/store';
 //     'Shake or press menu button for dev menu',
 // });
 
-const AppContainer: NavigationContainer = createAppContainer(Navigator);
+// const AppContainer: NavigationContainer = createAppContainer(Navigator);
 
 interface Props {}
 export default class App extends Component<Props> {
   render() {
     return (
       <Provider store={store}>
-        <AppContainer />
+        <Main></Main>
       </Provider>
     );
   }
