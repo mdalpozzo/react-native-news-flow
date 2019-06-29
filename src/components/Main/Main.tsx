@@ -7,15 +7,18 @@ import {
     HOME,
     OTHER,
     TEST,
+    Stories,
 } from './Main.types';
 import {
     selectView,
+    selectStories,
 } from './Main.selectors';
 import { ThunkDispatch } from 'redux-thunk';
 import { bindActionCreators } from 'redux';
 import {
     ActionTypes,
     setView,
+    getNews,
 } from './Main.actions';
 import { connect } from 'react-redux';
 import Home from 'Components/Home';
@@ -24,10 +27,16 @@ import NavBar from 'Components/NavBar';
 
 interface Props {
     view: string;
+    stories: Stories;
     setView: typeof setView;
+    getNews: typeof getNews;
 };
 
 class Main extends Component<Props> {
+    public componentDidMount() {
+        this.props.getNews();
+    }
+    
     private handleViewChange = (view: string): void => {
         this.props.setView(view);
     };
@@ -35,13 +44,16 @@ class Main extends Component<Props> {
     render () {
         const {
             view,
+            stories,
         } = this.props as Props;
 
-        let currentView: JSX.Element = <View><Text>No View Selected</Text></View>;
+        let currentView: JSX.Element = <View style={styles.NoView}><Text>No View Selected</Text></View>;
         switch (view) {
             case HOME:
                 currentView = (
-                    <Home></Home>
+                    <Home
+                        stories={stories}
+                    ></Home>
                 );
                 break;
             case TEST:
@@ -52,7 +64,7 @@ class Main extends Component<Props> {
         }        
 
         return (
-            <DefaultLayout>
+            <DefaultLayout stylesProp={styles.Container}>
                 {currentView}
                 <NavBar stylesProp={styles.NavBar} handleViewChange={this.handleViewChange} view={view}></NavBar>
             </DefaultLayout>
@@ -62,10 +74,12 @@ class Main extends Component<Props> {
 
 const mapStateToProps = (state: NestedState) => ({
     view: selectView(state),
+    stories: selectStories(state),
 });
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<NestedState, void, ActionTypes>) => bindActionCreators({
     setView,
+    getNews,
 }, dispatch);
 
 export default connect(

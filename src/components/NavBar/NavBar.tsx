@@ -22,9 +22,6 @@ class NavBar extends Component<Props> {
         } = this.props;
         return (
             <View style={[stylesProp, styles.container]}>
-                {/* <Button title="Other" onPress={() => handleViewChange(TEST)}></Button>
-                <Button title="Main" onPress={() => handleViewChange(HOME)}></Button>
-                <Button title="Other" onPress={() => handleViewChange(TEST)}></Button> */}
                 <Icon
                     name='chrome-reader-mode'
                     size={50}
